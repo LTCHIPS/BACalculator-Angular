@@ -22,8 +22,8 @@
   <nav class="navbar navbar-expand navbar-dark bg-dark">
     <div class="nav navbar-nav">
       <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link login" href="#">Login</a>
-      <a class="nav-item nav-link logout" href="#">Register</a>
+      <a class="nav-item nav-link login" routerLink="login">Login</a>
+      <a class="nav-item nav-link logout" routerLink="register">Register</a>
     </div>
   </nav>
   <div class="jumbotron">
@@ -39,10 +39,8 @@
     <p>
       Go make an account and start calculating your BAC now!
     </p>
-    <p class="lead">
-      <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
-    </p>
   </div>
 </body>
 
 </html>
+<router-outlet></router-outlet>
