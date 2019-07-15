@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   }
   
-  result;
+  result : any;
 
   @Input()
   username : string;

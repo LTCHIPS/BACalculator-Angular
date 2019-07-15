@@ -1,11 +1,11 @@
 <form>
     <div class="form-group">
         <label for="usernameField" style="margin-left: 50px">User Name : </label>
-        <input type="text" id="usernameField" class="form-control" style="width:250px; margin-left: 50px" ng-model = "username">
+        <input type="text" id="usernameField" name = "username" class="form-control" style="width:250px; margin-left: 50px" [(ngModel)] = "this.username">
     </div>
     <div class="form-group">
         <label for="passwordField" style="margin-left: 50px">Password : </label>
-        <input type="text" id="passwordField" class="form-control" style="width:250px; margin-left: 50px" ng-model = "password">
+        <input type="text" id="passwordField" name = "password" class="form-control" style="width:250px; margin-left: 50px" [(ngModel)] = "this.password">
     </div>
     <button type="button" class="btn btn-primary" style="margin-left: 50px" (click)="login()">Login</button>
 

@@ -16,6 +16,9 @@ export class UserService {
 
   public login(username:string,password:string){
 
+    console.log(username);
+    console.log(password);
+
     let params = new HttpParams()
     .set('username', username)
     .set('password', password);
