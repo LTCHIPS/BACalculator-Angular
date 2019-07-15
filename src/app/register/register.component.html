@@ -1,1 +1,48 @@
-<p>register works!</p>
+<form>
+    <div class="form-group">
+        <label for="firstnameField" style="margin-left: 50px">First Name : </label>
+        <input type="text" id="firstnameField" name="firstname" class="form-control"
+            style="width:250px; margin-left: 50px" [(ngModel)]="user.firstname">
+    </div>
+
+    <div class="form-group">
+        <label for="lastnameField" style="margin-left: 50px">Last Name : </label>
+        <input type="text" id="lastnameField" name="lastname" class="form-control"
+            style="width:250px; margin-left: 50px" [(ngModel)]="user.lastname">
+    </div>
+
+    <div class="form-group">
+        <div class="form-group">
+          <label for="genderField" style="margin-left: 50px">Gender : </label>
+          <select class="form-control" name="gender" id="genderField" style="width:250px; margin-left: 50px" [(ngModel)]="user.gender">
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="emailField" style="margin-left: 50px">Email : </label>
+        <input type="text" id="emailField" name="email" class="form-control" style="width:250px; margin-left: 50px"
+            [(ngModel)]="user.email">
+    </div>
+
+    <div class="form-group">
+        <label for="bodyWeightField" style="margin-left: 50px">Bodyweight : </label>
+        <input type="text" id="bodyweightField" name="bodyweight" class="form-control"
+            style="width:250px; margin-left: 50px" [(ngModel)]="user.bodyweight">
+    </div>
+
+    <div class="form-group">
+        <label for="usernameField" style="margin-left: 50px">User Name : </label>
+        <input type="text" id="usernameField" name="username" class="form-control"
+            style="width:250px; margin-left: 50px" [(ngModel)]="user.username">
+    </div>
+    <div class="form-group">
+        <label for="passwordField" style="margin-left: 50px">Password : </label>
+        <input type="text" id="passwordField" name="password" class="form-control"
+            style="width:250px; margin-left: 50px" [(ngModel)]="user.password">
+    </div>
+    <button type="button" class="btn btn-primary" style="margin-left: 50px" (click)="register()">Submit</button>
+
+</form>

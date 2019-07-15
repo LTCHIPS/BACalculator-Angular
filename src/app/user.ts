@@ -1,10 +1,10 @@
 export class User {
     userid:number;
-    firstname:String;
-    lastname:String;
-    username:String;
-    password:String;
-    email:String;
+    firstname:string;
+    lastname:string;
+    username:string;
+    password:string;
+    email:string;
     bodyweight:number;
-    gender:String;
+    gender:string;
 }
