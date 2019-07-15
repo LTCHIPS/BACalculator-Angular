@@ -1,0 +1,23 @@
+<form>
+    <div class="form-group">
+        <label for="amountField" style="margin-left: 50px">Amount: </label>
+        <input type="text" id="amountInput"><br/>
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary active" style="margin-left: 100px">Oz:
+                <input type="radio" name="amountRadio" id="" autocomplete="off" checked>
+            </label>
+            <label class="btn btn-primary">Liters:
+                <input type="radio" name="amountRadio" id autocomplete="off">
+            </label>
+        </div>
+    </div>
+    <div>
+        <label for="whatField" style="margin-left: 50px">What are you drinking?</label>
+        <div class="form-group" style="margin-left: 50px">
+          <label for="whatSelect">Select or choose custom...</label>
+          <select multiple class="form-control" name="" id="">
+            <option *ngFor="let drink of drinks">{{drink}}</option>
+          </select>
+        </div>
+    </div>
+</form>
