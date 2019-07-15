@@ -10,12 +10,12 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
   
-  register(user){
+  public register(user){
     return this.http.post(this.serverUrl + "users", user);
   }
 
-  login(username:string,password:string){
+  public login(username:string,password:string){
     let user = {"username":username, "password":password};
-    return this.http.post(this.serverUrl + "users/login", user);
+    return this.http.post(this.serverUrl + "users/login.do", user);
   }
 }
