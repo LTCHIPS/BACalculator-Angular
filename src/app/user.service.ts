@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  serverUrl = "http://localhost:4200/"
+  serverUrl = "http://localhost:8081/"
 
   constructor(private http: HttpClient) { }
   
@@ -15,7 +15,12 @@ export class UserService {
   }
 
   public login(username:string,password:string){
+
+    let params = new HttpParams()
+    .set('username', username)
+    .set('password', password);
+
     let user = {"username":username, "password":password};
-    return this.http.post(this.serverUrl + "users/login.do", user);
+    return this.http.post(this.serverUrl + "users/login.do", params);
   }
 }

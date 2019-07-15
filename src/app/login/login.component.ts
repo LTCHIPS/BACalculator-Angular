@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../user.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   }
   
+  result;
 
   @Input()
   username : string;
@@ -23,7 +25,11 @@ export class LoginComponent implements OnInit {
 
   login()
   {
-    this.userServ.login(this.username, this.password);
+    this.userServ.login(this.username, this.password).subscribe((res)=>{
+      this.result = res;
+      console.log(this.result);
+    });
+
 
   }
 
