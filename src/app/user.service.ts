@@ -23,8 +23,11 @@ export class UserService {
     .set('gender', user.gender)
     .set('bodyweight', String(user.bodyweight));
 
+    let url = this.serverUrl + "users/register.do";
 
-    return this.http.post(this.serverUrl + "users/register.do", params);
+    console.log(url);
+
+    return this.http.post(url, params);
   }
 
   public login(username:string,password:string){
