@@ -44,12 +44,21 @@ export class UpdateUserComponent implements OnInit {
 
   update() 
   {
-    this.userServ.update(this.user);
+    this.userServ.update(this.user).subscribe(function(msg) 
+    {
+      let parsedMsg = JSON.parse(JSON.stringify(msg));
+      if (parsedMsg["msg"] == "success")
+      {
+        alert("User Info successfully updated!");
+      }
+      else 
+      {
+        alert("Update failed!");
+      }
+    });
+
+    this.routerThing.navigate(['welcome']);
 
   }
-  
-  
-  
-
 
 }
