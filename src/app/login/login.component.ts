@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { User } from '../user';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private userServ : UserService) 
+  constructor(private userServ : UserService, private routerThing : Router) 
   {
 
 
@@ -28,6 +29,12 @@ export class LoginComponent implements OnInit {
     this.userServ.login(this.username, this.password).subscribe((res)=>{
       this.result = res;
       console.log(this.result);
+
+      //store user object returned by controller as a string locally
+      window.sessionStorage.setItem("userobj", res.toString());
+
+      //this.routerThing.navigate(["welcome"]);
+
     });
 
 
