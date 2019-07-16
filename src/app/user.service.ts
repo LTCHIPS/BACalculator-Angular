@@ -43,5 +43,18 @@ export class UserService {
     return this.http.post(this.serverUrl + "users/login.do", params);
   }
 
+  public update(user : User) {
+    let params = new HttpParams()
+    .set('userid', String(user.userid))
+    .set('username', user.username)
+    .set('password', user.password)
+    .set('firstname', user.firstname)
+    .set('lastname', user.lastname)
+    .set('email', user.email)
+    .set('gender', user.gender)
+    .set('bodyweight', String(user.bodyweight));    
+
+    return this.http.put(this.serverUrl + "users/update.do", params);
+  }
 
 }
