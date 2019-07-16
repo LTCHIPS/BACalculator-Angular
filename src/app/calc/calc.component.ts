@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DrinkService } from '../drink.service';
 import { Drink } from '../drink';
+import { Driver } from 'selenium-webdriver/opera';
 
 @Component({
   selector: 'app-calc',
@@ -12,19 +13,22 @@ export class CalcComponent implements OnInit {
   constructor(private drinkServ:DrinkService) { }
 
   ngOnInit() {
+    this.getPresets();
   }
 
   getPresets() 
   {
     this.drinkServ.getDranks().subscribe((result) => 
     {
-      this.drinks = JSON.parse(result.toString());
-      
-    });
-    //this.drinks = JSON.parse(this.drinkServ.getDranks().toString());
+      var d = JSON.parse(JSON.stringify(result));
 
+      for(let dObj of d){
+        //console.log(dObj);
+        let drank:Drink = dObj;
+        this.drinks.push(drank);
+      }
+    });
   }
 
-  drinks : Drink;
-  //drinks = ["beer","wine","spirit"];
+  drinks = [];
 }
