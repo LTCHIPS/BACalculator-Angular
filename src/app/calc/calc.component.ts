@@ -16,7 +16,7 @@ export class CalcComponent implements OnInit {
 
   getPresets() 
   {
-    this.drinkServ.getDranks().subscribe((result) => 
+    this.drinkServ.getDrinks().subscribe((result) => 
     {
       this.drinks = JSON.parse(result.toString());
       
