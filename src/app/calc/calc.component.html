@@ -1,0 +1,33 @@
+<form>
+    <div class="form-group">
+        <label for="amountField" style="margin-left: 50px">Amount: </label>
+        <input type="number" id="amountInput" name="amountInput" [(ngModel)]="amount" required><br/>
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary active" style="margin-left: 100px">Oz:
+                <input type="radio" name="amountRadio" [(ngModel)]="liquidType" value="oz" autocomplete="off" checked>
+            </label>
+            <label class="btn btn-primary">Liters:
+                <input type="radio" name="amountRadio" [(ngModel)]="liquidType" value="liter" autocomplete="off">
+            </label>
+        </div>
+    </div>
+    <div>
+        <label for="whatField" style="margin-left: 50px">What are you drinking?</label>
+        <div class="form-group" style="margin-left: 50px; margin-right: 60%">
+          <label for="whatSelect">Select or choose custom...</label>
+          <select [(ngModel)]="selected" name="selectForm" multiple class="form-control" id="drinkSelect" >
+            <option *ngFor="let drink of drinks" value="{{drink.strength}}">{{drink.name}}: {{drink.strength}}%</option>
+          </select>
+        </div>
+    </div>
+    <!-- <div class="form-group" style="margin-left: 50px">
+        <label for="weightField" style="margin-left: 50px">Weight: </label>
+        <input type="number" id="weightInput" name="weightInput" [(ngModel)]="weight" required>
+    </div> -->
+    <div class="form-group" style="margin-left: 50px">
+            <label for="timeField" style="margin-left: 50px">Time: </label>
+            <input type="number" id="timeInput" name="timeInput" [(ngModel)]="time" required>
+    </div>
+    <button type="button" name="calcButton" id="" class="btn btn-primary btn-lg" style="margin-left: 50px" (click)="calcBAC()">Calculate</button>
+
+</form>

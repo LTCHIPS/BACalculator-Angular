@@ -7,13 +7,16 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CalcComponent } from './calc/calc.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    CalcComponent,
     WelcomeComponent
   ],
   imports: [
