@@ -36,6 +36,8 @@ export class CalcComponent implements OnInit {
   selected:number;
   time:number;
   liquidType:string;
+  bac:number;
+  bacLevel = [];
 
   u:User;
 
@@ -54,13 +56,31 @@ export class CalcComponent implements OnInit {
     console.log(genderMultiplier);
     console.log(liquidMultiplier);
 
-    var bac = (this.u.bodyweight * genderMultiplier) / ((this.amount * liquidMultiplier) * this.selected[0]);
-    console.log("Estimated blood alcohol at  hours: " + bac);
+    this.bac = (((this.amount * liquidMultiplier) * this.selected[0]) / (this.u.bodyweight * genderMultiplier)) / 1000;
+    console.log("Estimated blood alcohol at  hours: " + this.bac);
+
+    this.generateValues();
+
   }
 
-//((this.amount * liquidMultiplier) * this.selected[0]) / (this.u.bodyweight * genderMultiplier)
+  generateValues(){
+    var xdiff = this.bac / this.time;
+    var x = 0;
+    var xdown = this.bac;
+    var hour = 0;
+    var burn = 0.015;
+    this.bacLevel = [];
 
-  // getSelectedDrink(){
-  //   console.log(this.selected)
-  // }
+    while(hour <= this.time){
+      this.bacLevel.push(x);
+
+      x += xdiff;
+      hour++;
+    }
+    while(xdown >= 0.015){
+      xdown -= burn;
+      this.bacLevel.push(xdown);
+    }
+     console.log(this.bacLevel.toString());
+  }
 }
