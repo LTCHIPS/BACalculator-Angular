@@ -39,7 +39,7 @@ export class UserService {
     .set('username', username)
     .set('password', password);
 
-    let user = { "username" : username, "password" : password};
+    //let user = { "username" : username, "password" : password};
     return this.http.post(this.serverUrl + "users/login.do", params);
   }
 

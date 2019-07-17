@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       console.log(this.result);
 
       //store user object returned by controller as a string locally
-      window.sessionStorage.setItem("userobj", res.toString());
+      window.sessionStorage.setItem("userobj", JSON.stringify(res));
 
       this.routerThing.navigate(["welcome"]);
 
