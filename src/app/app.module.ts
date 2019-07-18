@@ -9,13 +9,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CalcComponent } from './calc/calc.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-<<<<<<< HEAD
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { GraphComponent } from './graph/graph.component';
-=======
 import { ForgotpwComponent } from './forgotpw/forgotpw.component';
 
->>>>>>> origin/recoverPassword
 
 @NgModule({
   declarations: [
@@ -23,12 +20,9 @@ import { ForgotpwComponent } from './forgotpw/forgotpw.component';
     LoginComponent,
     RegisterComponent,
     WelcomeComponent,
-<<<<<<< HEAD
     UpdateUserComponent,
     GraphComponent,
-=======
     ForgotpwComponent,
->>>>>>> origin/recoverPassword
     CalcComponent
   ],
   imports: [
