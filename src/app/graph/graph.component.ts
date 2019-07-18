@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as c3 from 'c3';
+import { TransferService } from '../transfer.service';
 
 
 @Component({
@@ -9,16 +10,24 @@ import * as c3 from 'c3';
 })
 export class GraphComponent implements OnInit {
 
-  constructor() { }
+  constructor(private transferServ:TransferService) { }
+
+  data : any[];
 
   ngOnInit() {
+    if (this.transferServ.hasData() == true)
+      this.data = this.transferServ.getData();
+    else
+      alert("Graph has no data to plot.");
+
   }
   ngAfterViewInit() {
+
     let chart = c3.generate({
     bindto: '#chart',
         data: {
             columns: [
-                ['data1', 50, 20, 10, 40, 15, 25]
+                ['Your BAC'].concat(this.data)
             ]
         }
     });

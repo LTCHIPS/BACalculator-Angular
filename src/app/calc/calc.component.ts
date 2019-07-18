@@ -3,6 +3,8 @@ import { DrinkService } from '../drink.service';
 import { Drink } from '../drink';
 import { Driver } from 'selenium-webdriver/opera';
 import { User } from '../user';
+import { TransferService } from '../transfer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-calc',
@@ -11,7 +13,8 @@ import { User } from '../user';
 })
 export class CalcComponent implements OnInit {
 
-  constructor(private drinkServ:DrinkService) { }
+  constructor(private drinkServ:DrinkService, private transferServ:TransferService,
+              private routerThing:Router) { }
 
   ngOnInit() {
     this.getPresets();
@@ -81,6 +84,11 @@ export class CalcComponent implements OnInit {
       xdown -= burn;
       this.bacLevel.push(xdown);
     }
-     console.log(this.bacLevel.toString());
+    console.log(this.bacLevel.toString());
+
+    this.transferServ.setData(this.bacLevel);
+    
+    this.routerThing.navigate(['graph']);
+
   }
 }
