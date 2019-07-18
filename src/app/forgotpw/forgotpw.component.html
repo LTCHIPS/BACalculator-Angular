@@ -1,0 +1,16 @@
+<form style="margin-left: 50px">
+    <h1>Forgot your password?</h1>
+    <br />
+    Enter your email below that is associated with your account and your password will be sent to your email inbox
+    <br />
+    <br />
+    <div class="form-group">
+        Email: <input type="text" id="emailField" name="email" class="form-control" style="width:250px"
+            [(ngModel)]="this.email">
+    </div>
+    <button type="button" class="btn btn-primary" (click)="findPassword(); alert();">Submit</button>
+    <br />
+    <br />
+    <br />
+    <br />
+</form>
