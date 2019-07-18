@@ -28,7 +28,8 @@ export class LoginComponent implements OnInit {
   {
     console.log("Username: ", this.username);
     console.log("Password: ", this.password);
-    this.userServ.login(this.username, this.password).subscribe((res)=>{
+    this.userServ.login(this.username, this.password).subscribe((res)=>
+    {
       this.result = res;
       console.log(this.result);
 
@@ -38,7 +39,6 @@ export class LoginComponent implements OnInit {
       this.routerThing.navigate(["welcome"]);
 
     });
-
 
   }
 

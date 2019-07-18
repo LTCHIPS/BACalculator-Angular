@@ -5,6 +5,8 @@ import { Driver } from 'selenium-webdriver/opera';
 import { User } from '../user';
 import { TransferService } from '../transfer.service';
 import { Router } from '@angular/router';
+import { Transaction } from '../transaction';
+import { TransactionService } from '../transaction.service';
 
 @Component({
   selector: 'app-calc',
@@ -14,7 +16,7 @@ import { Router } from '@angular/router';
 export class CalcComponent implements OnInit {
 
   constructor(private drinkServ:DrinkService, private transferServ:TransferService,
-              private routerThing:Router) { }
+              private routerThing:Router, private transactionServ:TransactionService) { }
 
   ngOnInit() {
     this.getPresets();
@@ -31,6 +33,7 @@ export class CalcComponent implements OnInit {
         let drank:Drink = dObj;
         this.drinks.push(drank);
       }
+      
     });
   }
 
@@ -61,6 +64,19 @@ export class CalcComponent implements OnInit {
 
     this.bac = (((this.amount * liquidMultiplier) * this.selected[0]) / (this.u.bodyweight * genderMultiplier)) / 1000;
     console.log("Estimated blood alcohol at  hours: " + this.bac);
+
+    let transaction = new Transaction();
+
+    transaction.amount = this.amount;
+    transaction.strength = this.selected[0];
+    transaction.bodyweight = this.u.bodyweight;
+    transaction.gender = this.u.gender;
+    transaction.time = this.time;
+    transaction.userid = this.u.userid;
+
+    console.log("calling user transaction set");
+
+    this.transactionServ.saveUserTransaction(transaction);
 
     this.generateValues();
 
