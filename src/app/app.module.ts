@@ -7,8 +7,10 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CalcComponent } from './calc/calc.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ForgotpwComponent } from './forgotpw/forgotpw.component';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { ForgotpwComponent } from './forgotpw/forgotpw.component';
     LoginComponent,
     RegisterComponent,
     WelcomeComponent,
-    ForgotpwComponent
+    ForgotpwComponent,
+    CalcComponent
   ],
   imports: [
     BrowserModule,
