@@ -12,6 +12,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { GraphComponent } from './graph/graph.component';
 import { ForgotpwComponent } from './forgotpw/forgotpw.component';
+import { TransactionTableComponent } from './transaction-table/transaction-table.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ForgotpwComponent } from './forgotpw/forgotpw.component';
     UpdateUserComponent,
     GraphComponent,
     ForgotpwComponent,
-    CalcComponent
+    CalcComponent,
+    TransactionTableComponent
   ],
   imports: [
     BrowserModule,

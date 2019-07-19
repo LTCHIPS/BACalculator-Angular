@@ -1,0 +1,22 @@
+<table class="table table-striped table-inverse table-responsive" style="margin-left: 50px" >
+    <thead class="thead-inverse">
+        <tr>
+            <th>Transaction Id</th>
+            <th>Amount</th>
+            <th>Strength</th>
+            <th>Time to drink</th>
+            <th>Gender</th>
+            <th>Body weight</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let t of transactions">
+                <td scope="row">{{t.transactionid}}</td>
+                <td>{{t.amount}}</td>
+                <td>{{t.strength}}</td>
+                <td>{{t.time}}</td>
+                <td>{{t.gender}}</td>
+                <td>{{t.bodyweight}}</td>
+            </tr>
+        </tbody>
+</table>

@@ -13,8 +13,10 @@ export class TransactionService {
 
   getUserTransactions(userid:number)
   {
+    let params = new HttpParams()
+    .set('userid', String(userid));
 
-
+    return this.http.post(this.serverUrl + "transaction/getUserTransactions.do", params);
   }
 
   saveUserTransaction(transaction:Transaction)
@@ -27,9 +29,7 @@ export class TransactionService {
     .set('gender', transaction.gender)
     .set('bodyweight', String(transaction.bodyweight));
 
-    console.log("bitch");
     this.http.post(this.serverUrl + "transaction/setTransaction.do", params).subscribe((res) => {console.log("called setTransaction")});
-
   }
 
 }
