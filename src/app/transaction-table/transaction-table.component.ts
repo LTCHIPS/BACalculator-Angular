@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TransactionService } from '../transaction.service';
 import { User } from '../user';
 import { Transaction } from '../transaction';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-transaction-table',
@@ -10,7 +11,7 @@ import { Transaction } from '../transaction';
 })
 export class TransactionTableComponent implements OnInit {
 
-  constructor(private transactionServ: TransactionService) { }
+  constructor(private transactionServ: TransactionService, private routerThing : Router) { }
 
   ngOnInit() {
     this.loadTable();
@@ -30,6 +31,10 @@ export class TransactionTableComponent implements OnInit {
           let tran:Transaction = tObj;
           this.transactions.push(tran);
         }
-    })
+    });
+  }
+
+  goHome(){
+    this.routerThing.navigate(["welcome"]);
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as c3 from 'c3';
 import { TransferService } from '../transfer.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { TransferService } from '../transfer.service';
 })
 export class GraphComponent implements OnInit {
 
-  constructor(private transferServ:TransferService) { }
+  constructor(private transferServ:TransferService, private routerThing: Router) { }
 
   data : any[];
 
@@ -31,6 +32,14 @@ export class GraphComponent implements OnInit {
             ]
         }
     });
+}
+
+goHome(){
+  this.routerThing.navigate(["welcome"]);
+}
+
+goTransaction(){
+  this.routerThing.navigate(["transaction-table"]);
 }
 
 }
